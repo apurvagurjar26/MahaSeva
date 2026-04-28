@@ -1,70 +1,64 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# MahaSeva - Social Intervention Management System (SIMS) 🚀
 
-#  MahaSeva – AI-Powered NGO & Volunteer Coordination Platform
+MahaSeva is an intelligent platform designed to bridge the gap between community-reported issues and organized social action. Using Gemini AI, the system analyzes raw data from citizens, categorizes interventions by urgency and field, and intelligently matches them with the most suitable volunteers and NGOs.
 
-##  Overview
-MahaSeva is an AI-powered platform designed to bridge the gap between **real-world problems** and **timely humanitarian response**.  
-It enables NGOs and volunteers to collaborate efficiently by intelligently detecting, analyzing, and assigning tasks during crisis situations.
+## 🌟 Key Features
+
+- **Intelligence Feed**: Real-time analysis of reported problems using Gemini AI to detect field, severity, and urgency.
+- **Vibrant NGO Dashboard**: Centralized command center for NGOs to manage field deployments.
+- **Smart Matching Engine**: Ranks and recommends volunteers based on skill-match, location proximity, and years of experience.
+- **Volunteer Portal**: personalized mission control for registered volunteers to track their active assignments and impact.
+- **Impact Metrics**: Automatic tracking of community impact once missions are completed.
+
+## 💻 Tech Stack
+
+- **Frontend**: React 19 + TypeScript + Vite
+- **Styling**: Tailwind CSS + Motion
+- **Database / Auth**: Firebase (Firestore & Authentication)
+- **Intelligence**: Google Gemini AI (via @google/genai)
+- **Deployment**: Optimized for Vercel / Cloud Run
+
+## 🛠️ Setup Instructions
+
+### Prerequisites
+
+- Node.js (v18+)
+- Firebase Project
+- Google AI Studio (Gemini) API Key
+
+### Local Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone <your-repo-url>
+   cd mahaseva
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup**:
+   Copy `.env.example` to `.env` and fill in your credentials:
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Launch Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+## 🔒 Security Note
+
+This project uses environment variables for all sensitive credentials. Never commit your `.env` file to version control. The `.gitignore` is pre-configured to prevent this.
+
+## 🚀 Vercel Deployment
+
+This project is pre-configured for one-click deployment on Vercel. 
+- Ensure you add all environment variables listed in `.env.example` to your Vercel Project Settings.
+- The `vercel.json` provides standard SPA routing support.
 
 ---
-
-##  Problem Statement
-In many regions, social issues such as sanitation, healthcare needs, and infrastructure failures are:
-- Reported in an unstructured manner  
-- Poorly tracked and managed  
-- Slow to receive proper attention  
-
-This leads to **delayed responses**, **resource mismanagement**, and **inefficient volunteer deployment**.
-
----
-
-##  Solution
-MahaSeva transforms scattered problem reports into a **structured, AI-driven workflow system** that:
-- Detects and categorizes issues using AI  
-- Matches problems with the right NGOs/volunteers  
-- Enables efficient resource allocation  
-- Provides real-time tracking and updates  
-
----
-
-## ✨ Key Features
-
--  **AI-Based Problem Detection**  
-  Automatically analyzes and categorizes incoming reports  
-
--  **Smart Volunteer Matching**  
-  Assigns the most suitable volunteers based on need and availability  
-
--  **Centralized Dashboard**  
-  View, manage, and track all reported issues in one place  
-
--  **Real-Time Updates**  
-  Keeps all stakeholders informed instantly  
-
--  **Scalable Architecture**  
-  Designed to handle multiple regions and NGOs  
-
----
-
-##  Tech Stack
-
-- **Frontend:** React + Vite + TypeScript  
-- **Backend / Services:** Firebase  
-- **AI Integration:** Gemini API (Google AI Studio)  
-- **Database:** Firestore  
-- **Hosting (Optional):** Firebase / Cloud  
-
----
-
-##  System Architecture
-
----
-
-## 🔑 Environment Setup
-
->  API keys are not included for security reasons.
-
-Create a `.env` file in the root directory and add:
-
+Built with ❤️ for social impact.

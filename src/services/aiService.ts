@@ -1,6 +1,10 @@
 import { GoogleGenAI, Type, Part } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
+const API_KEY = (import.meta.env.VITE_GEMINI_API_KEY || "") as string;
+if (!API_KEY) {
+  console.warn("VITE_GEMINI_API_KEY is missing. AI features will not function until configured.");
+}
+const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 export async function classifyProblem(content: string | Part[], existingProblems: string[] = []) {
   let prompt = "Extract all potential problem data from the following NGO report/input. ";

@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Volunteers collection
+    match /volunteers/{volunteerId} {
+      allow read: if isSignedIn(); // NGO needs to see volunteers, Volunteers see each other (simplified)
+      allow create: if true; // Public registration
+      allow update, delete: if isOwner(volunteerId) || isSignedIn(); // Simple rule for now
+    }
+
+    // Problems collection
+    match /problems/{problemId} {
+      allow read: if true; // Public visibility
+      allow write: if isSignedIn(); // NGO or assigned volunteer can write
+    }
+
+    // NGO configuration
+    match /ngo/{id} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+  }
+}

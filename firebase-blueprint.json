@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "volunteer": {
+      "title": "Volunteer",
+      "description": "A volunteer registered on the platform",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "dob": { "type": "string" },
+        "age": { "type": "number" },
+        "gender": { "type": "string" },
+        "skills": { "type": "array", "items": { "type": "string" } },
+        "experience": { "type": "string" },
+        "education": { "type": "string" },
+        "city": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "password": { "type": "string" },
+        "availability": { "type": "boolean" },
+        "assigned_task_id": { "type": "string", "description": "ID of the current active problem/task" },
+        "task_schedule": {
+          "type": "object",
+          "properties": {
+            "day": { "type": "string" },
+            "time": { "type": "string" }
+          }
+        }
+      },
+      "required": ["name", "email", "password", "city"]
+    },
+    "problem": {
+      "title": "Problem",
+      "description": "An NGO issue/problem detected via AI",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "location": { "type": "string" },
+        "level": { "type": "string", "enum": ["High", "Mid", "Low"] },
+        "field": { "type": "string" },
+        "required_volunteers": { "type": "number" },
+        "assigned_volunteers": { "type": "array", "items": { "type": "string" } },
+        "completed_by": { "type": "array", "items": { "type": "string" } },
+        "impact_metrics": { 
+          "type": "array", 
+          "items": { 
+            "type": "object",
+            "properties": {
+              "volunteer_id": { "type": "string" },
+              "people_helped": { "type": "number" },
+              "resources_used": { "type": "string" },
+              "notes": { "type": "string" }
+            }
+          }
+        },
+        "status": { "type": "string", "enum": ["In Progress", "Completed"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "location", "level", "field"]
+    },
+    "ngo": {
+      "title": "NGO Data",
+      "description": "NGO-specific settings, though for this app we use a fixed login",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "password": { "type": "string" },
+        "name": { "type": "string" },
+        "tagline": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/volunteers": {
+      "schema": "volunteer",
+      "description": "Global collection of volunteers"
+    },
+    "/problems": {
+      "schema": "problem",
+      "description": "Global collection of NGO problems"
+    },
+    "/ngo": {
+      "schema": "ngo",
+      "description": "NGO configuration and credentials"
+    }
+  }
+}

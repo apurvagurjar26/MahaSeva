@@ -1,0 +1,6 @@
+{
+  "name": "MahaSeva - NGO & Volunteer Platform",
+  "description": "An AI-powered platform for NGO operations and volunteer management in Maharashtra, India. Features automated problem classification, volunteer matching, and real-time mapping.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": []
+}
